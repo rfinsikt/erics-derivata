@@ -10,6 +10,8 @@
 \usepackage{xcolor}
 \usepackage{appendix}
 
+\usepackage{adjustbox}
+
 %eric gör "fina" satser
 \usepackage{mdframed}
 
@@ -28,9 +30,23 @@ frametitlebackgroundcolor=green!10,
 innertopmargin=\topskip,
 topline=false,
 bottomline=false,
-rightline=false
+rightline=false,
+nobreak=true
 }
 \mdtheorem[style=rstyle]{regel}{Räkneregel}
+
+\mdfdefinestyle{fstyle}{%
+linecolor=black,linewidth=2pt,%
+frametitlerule=true,%
+frametitlebackgroundcolor=black!10,
+innertopmargin=\topskip,
+topline=false,
+bottomline=false,
+rightline=false,
+nobreak=true
+}
+\mdtheorem[style=fstyle]{facit}{Övningsuppgifter}
+\mdtheorem[style=fstyle]{blufacit}{Blandade uppgifter}
 
 \mdfdefinestyle{bstyle}{%
 linecolor=purple,linewidth=2pt,%
@@ -39,7 +55,8 @@ frametitlebackgroundcolor=purple!10,
 innertopmargin=\topskip,
 topline=false,
 bottomline=false,
-rightline=false
+rightline=false,
+nobreak=true
 }
 \mdtheorem[style=bstyle]{blu}{Blandade uppgifter}
 
@@ -50,7 +67,8 @@ frametitlebackgroundcolor=blue!10,
 innertopmargin=\topskip,
 topline=false,
 bottomline=false,
-rightline=false
+rightline=false,
+nobreak=true
 }
 \mdtheorem[style=estyle]{exempel}{Exempel}
 
@@ -61,7 +79,8 @@ frametitlebackgroundcolor=yellow!10,
 innertopmargin=\topskip,
 topline=false,
 bottomline=false,
-rightline=false
+rightline=false,
+nobreak=true
 }
 \mdtheorem[style=ustyle]{uppgifter}{Övningsuppgifter}
 
@@ -82,9 +101,11 @@ rightline=false
 
 \section{Deriveringsregler}
 
-\subsection{Derivatan av $x^n$}
+\subsection{Vad är derivata?}
 
-Att ''derivera'' är att ta en funktion $f(x)$ och göra om den till en ny funktion (som kallas $f'(x)$). Den nya funktionen visar \emph{förändringshastigheten} av den första!
+Att ``derivera'' är att ta en funktion $f(x)$ och göra om den till en ny funktion som visar \emph{förändringshastigheten} av den första!
+
+Den nya funktionen kallas \emph{derivatan} av $f(x)$. Den skrivs $f'(x)$ som uttalas `` f-prim av x''.
 
 \begin{figure}[h]
     \centering
@@ -99,13 +120,17 @@ Att ''derivera'' är att ta en funktion $f(x)$ och göra om den till en ny funkt
         \addlegendentry{$f'(x)$}
         \end{axis}
     \end{tikzpicture}
-    \caption{När funktionen $f(x)$ pekar neråt (sett från vänster till höger) är derivatan $f'(x)$ negativ. Ju mer positiv (uppåt) lutning $f(x)$ har, desto mer positiv blir $f'(x)$.}
+    \caption{När funktionen i blått pekar neråt (sett från vänster till höger) är derivatan i rött negativ. Ju mer positiv (uppåt) lutning grafen till funktionen har, desto mer positiv blir derivatan.}
     \label{fig:1}
 \end{figure}
 
 I figur \ref{fig:1} så är $f(x) = x^2 - 3$ och $f'(x) = 2x$. Målet med det här kapitlet är att lära oss reglerna vi följer när vi tar reda på derivatan av en funktion.
 
+
+\subsection{Derivatan av $x^n$}
+
 \begin{regel}
+    \label{reg:x^n}
     \[f(x) = x^n \imp f'(x) = nx^{n-1}\]
 \end{regel}
 
@@ -114,12 +139,19 @@ I figur \ref{fig:1} så är $f(x) = x^2 - 3$ och $f'(x) = 2x$. Målet med det h�
     Svar: $f'(x) = 3\cdot x^{3-1} = 3x^2$
 \end{exempel}
 
+
+\begin{exempel}
+    Vad är derivatan av $f(x) = 1$\\
+    Svar: $f(x) = x^0 \imp f'(x) = 0 \cdot \left [ \text{spelar ingen roll vad som kommer här}\right] = 0$
+\end{exempel}
+
 \begin{uppgifter}
+    \label{upp:x^n}
     Derivera följande funktioner:
     \begin{multicols}{3}
         \begin{enumerate}
             \item $f(x) = x^4 \\ f'(x) \ans$
-            \item $g(x) = x^2 \\ g'(x) \ans$
+            \item $g(x) = 1 \\ g'(x) \ans$
             \item $h(x) = x^{27} \\ h'(x) \ans$
         \end{enumerate}
     \end{multicols}
@@ -131,7 +163,7 @@ I figur \ref{fig:1} så är $f(x) = x^2 - 3$ och $f'(x) = 2x$. Målet med det h�
     \label{reg:kxn}
     \[f(x) = kx^n \imp f'(x) = knx^{n-1}\]
 \end{regel}
-Som du kanske märkte så ''hände'' det inget med $k$:et. Det är en generell regel -- en siffra multiplicerad med en funktion finns kvar efter att funktionen deriverats. Vi kan formulera den generella regeln så här:
+Som du kanske märker i räkneregel \ref*{reg:kxn} så ''hände'' det inget med $k$:et. Det är en generell regel för all derivata -- en siffra multiplicerad med en funktion finns kvar efter att funktionen deriverats. Vi kan formulera den generella regeln så här:
 
 \begin{regel}
     \label{reg:kf(x)}
@@ -142,13 +174,18 @@ Som du kanske märkte så ''hände'' det inget med $k$:et. Det är en generell r
     Vad är derivatan av $3x^2$? \\ Svar: $f'(x) = 3\cdot 2x^{2-1} = 6x$
 \end{exempel}
 
+\begin{exempel}
+    Vad är derivatan av $3$? \\ Svar: $f(x) = 3 \cdot x^0 \imp f'(x) = 3 \cdot 0 = 0$
+\end{exempel}
+
 \begin{uppgifter}
+    \label{upp:kx^n}
     Derivera följande funktioner:
     \begin{multicols}{3}
         \begin{enumerate}
             \item $f(x) = 3x^4 \\ f'(x) \ans$
-            \item $g(x) = 4x^2 \\ g'(x) \ans$
-            \item $h(x) = 2x^{27} \\ h'(x) \ans$
+            \item $g(x) = 4 \\ g'(x) \ans$
+            \item $h(x) = 2x \\ h'(x) \ans$
         \end{enumerate}
     \end{multicols}
 \end{uppgifter}
@@ -170,6 +207,7 @@ Du kanske ser mönstret utifrån exemplet, här är iallafall den generella rege
 Kolla igen på exempel \ref*{ex:3x2} här ovanför och se att du är med på hur det funkar innan du gör övningsuppgifterna här under.
 
 \begin{uppgifter}
+    \label{upp:f+g}
     Derivera följande funktioner:
     \begin{multicols}{3}
         \begin{enumerate}
@@ -183,15 +221,14 @@ Kolla igen på exempel \ref*{ex:3x2} här ovanför och se att du är med på hur
 \subsection{Derivatan av $a^x$}
 Nu ska vi utvidga till derivator av funktioner där $x$ finns i exponenten, en grupp av funktioner som kallas \emph{exponentialfunktioner.}
 
-Vi har följande regel som gäller för ett speciellt värde, när siffran i basen är $e \approx 2,77$.
+Vi har följande regel som gäller för ett speciellt värde, när siffran i basen är $e \approx 2,77$. För en förklaring för vad $e$ är och var regeln kommer från, se Appendix \ref*{app:e} på sidan \pageref*{app:e}.
 
 \begin{regel}
     \[f(x) = e^x \imp f'(x) = e^x \]
 \end{regel}
 
-För en förklaring för vad $e$ är och var regeln kommer från, se Appendix \ref*{app:e} på sidan \pageref*{app:e}.
-
 \begin{uppgifter} 
+    \label{upp:e^x}
     Derivera följande funktioner: \\(kom ihåg räkneregel \ref*{reg:kf(x)} på sidan \pageref*{reg:kf(x)}, och räkneregel \ref*{reg:sum} på sidan \pageref*{reg:sum}).
     \begin{multicols}{3}
         \begin{enumerate}
@@ -217,7 +254,7 @@ För en förklaring för vad $e$ är och var regeln kommer från, se Appendix \r
 
 \begin{exempel}
     Vad är derivatan av $f(x) = \dfrac 1{e^x}$? \\
-    Lösning: Vi börjar med att skriva om $f(x)$ med hjälp av potensregler. 
+    Lösning: Vi börjar med att skriva om $f(x)$ med hjälp av potensregler (se Appendix \ref*{app:pot} på sidan \pageref*{app:pot}). 
     \[ \frac 1{e^x} = e^{-x} = e^{(-1)x} \]
     Nu kan vi använda räkneregel \ref*{reg:e^kx}. \\
     Svar: $f'(x) = (-1)\cdot e^{(-1)x} = -e^{-x} = -\dfrac 1{e^x}$
@@ -225,6 +262,7 @@ För en förklaring för vad $e$ är och var regeln kommer från, se Appendix \r
 
 
 \begin{uppgifter}
+    \label{upp:e^kx}
     Derivera följande funktioner:
     \begin{multicols}{3}
         \begin{enumerate}
@@ -236,7 +274,7 @@ För en förklaring för vad $e$ är och var regeln kommer från, se Appendix \r
 \end{uppgifter}
 
 \subsubsection{Funktionen $a^x$}
-Om du tittar på figur \ref*{fig:2^x} på sidan \pageref*{fig:2^x} och figur \ref*{fig:4^x} på sidan \pageref*{fig:4^x} så ser du att derivatan får en faktor framför sig, 1,4 i ena fallet och 0,7 i det andra. Den faktorn är värdet av funktionen $\ln(2)$ för $f(x) = 2^x$ och $\ln(4)$ för $f(x) = 4^x$. Funktionen $\ln (x)$ kallas för den \emph{naturliga logaritmen}, och beskrivs i XXXXXXX.
+Om du tittar på figur \ref*{fig:2^x} på sidan \pageref*{fig:2^x} och figur \ref*{fig:4^x} på sidan \pageref*{fig:4^x} i Appendix \ref*{app:e} så ser du att derivatan får en faktor framför sig, 1,4 i ena fallet och 0,7 i det andra. Den faktorn är värdet av funktionen $\ln(2)$ för $f(x) = 2^x$ och $\ln(4)$ för $f(x) = 4^x$. Funktionen $\ln (x)$ kallas för den \emph{naturliga logaritmen} och beskrivs i mer detalj i Appendix \ref*{app:e}
 
 
 \begin{regel}
@@ -264,7 +302,7 @@ Vi har en till regel för detta som liknar regel \ref*{reg:e^kx} på sidan \page
 \begin{exempel}
     Vad är derivatan av $f(x) = \dfrac 2{4^{2x}}$?
     
-    Lösning: Vi börjar med att skriva om $f(x)$ med hjälp av potensregler.
+    Lösning: Vi börjar med att skriva om $f(x)$ med hjälp av potensregler (se Appendix \ref*{app:pot} på sidan \pageref*{app:pot}).
     \[\dfrac{2}{4^{2x}} = 2\dfrac{1}{4^{2x}} = 2\cdot 4^{-2x} = 2\cdot 4^{(-2)x}\]
 
     Nu kan vi använda räkneregel \ref*{reg:a^kx}.
@@ -273,12 +311,13 @@ Vi har en till regel för detta som liknar regel \ref*{reg:e^kx} på sidan \page
 \end{exempel}
 
 \begin{uppgifter}
+    \label{upp:a^kx}
     Derivera följande funktioner:
     \begin{multicols}{3}
         \begin{enumerate}
             \item $f(x) = 3^x \\ f'(x) \ans$
             \item $g(x) = \dfrac{1}{2^{-3x}} \\ g'(x) \ans$
-            \item $h(x) = 2\cdot 3^x + \dfrac 2{3^x} - \dfrac 2{-3^x} \\ h'(x) \ans$
+            \item $h(x) = 2\cdot 3^x + \dfrac 2{3^x} - \dfrac 2{3^{-x}} \\ h'(x) \ans$
         \end{enumerate}
     \end{multicols}
 \end{uppgifter}
@@ -286,7 +325,7 @@ Vi har en till regel för detta som liknar regel \ref*{reg:e^kx} på sidan \page
 \newpage
 
 \begin{blu}
-    Derivera följande funktioner:
+    Derivera följande funktioner: (kom ihåg potensreglerna i Appendix \ref*{app:pot} på sidan \pageref*{app:pot})
     
     \begin{itemize}
         \begin{tabular}[b]{p{10em} p{20em}}
@@ -320,8 +359,10 @@ Vi börjar med att studera grafen till funktionen $2^x$.
 
 \begin{figure}[h!]
     \centering
+    
     \begin{mdframed}[backgroundcolor=gray!10]
-        \begin{tikzpicture}
+        \centering
+        \begin{tikzpicture}[scale=.8]
             \begin{axis}[
                 axis lines = center,
                 xlabel = \(x\),
@@ -333,8 +374,8 @@ Vi börjar med att studera grafen till funktionen $2^x$.
             \addlegendentry{$f(x) = 2^x$}
             \end{axis}
         \end{tikzpicture}
-        \hskip 5pt
-        \begin{tikzpicture}
+        \hskip 5em
+        \begin{tikzpicture}[scale=.8]
             \begin{axis}[
                 axis lines = center,
                 xlabel = \(x\),
@@ -352,12 +393,13 @@ Vi börjar med att studera grafen till funktionen $2^x$.
     \end{mdframed}
 \end{figure}
 
-Funktionen har en speciell egenskap: den lutar mer och mer brant ju större värdet blir. Det verkar som att \emph{derivatan} av $2^x$ ökar samtidigt som funktionen själv ökar. Om vi testar med funktionen $f(x) = 4^x$ så får vi ett liknande samband --- men denna gång åt andra hållet, derivatan är lite större än funktionen.
+Funktionen har en speciell egenskap: den lutar mer och mer brant ju större värdet blir. Det verkar som att \emph{derivatan} av $2^x$ ökar samtidigt som funktionen själv ökar, och att derivatans värde hela tiden är lite mindre än funktionens värde. Om vi testar med funktionen $f(x) = 4^x$ så får vi ett liknande samband --- men denna gång åt andra hållet, derivatan är lite större än funktionen.
 
 \begin{figure}[h!]
     \centering
     \begin{mdframed}[backgroundcolor=gray!10]
-        \begin{tikzpicture}
+        \centering
+        \begin{tikzpicture}[scale=.8]
             \begin{axis}[
                 axis lines = center,
                 xlabel = \(x\),
@@ -371,8 +413,8 @@ Funktionen har en speciell egenskap: den lutar mer och mer brant ju större vär
             \addlegendentry{$f(x) = 4^x$}
             \end{axis}
         \end{tikzpicture}
-        \hskip 5pt
-        \begin{tikzpicture}
+        \hskip 5em
+        \begin{tikzpicture}[scale=.8]
             \begin{axis}[
                 axis lines = center,
                 xlabel = \(x\),
@@ -391,12 +433,13 @@ Funktionen har en speciell egenskap: den lutar mer och mer brant ju större vär
     \end{mdframed}
 \end{figure}
 
-De två graferna liknar varandra --- men de är inte helt likadana. Det finns ett värde vi kan stoppa in istället för 2 eller 4 som gör att $f(x)$ och $f'(x)$ är exakt likadana --- en funktion som är sin egen derivata. Den funktionen är $e^x$, och $e$ är en konstant, $e\approx 2,72$.
+De två graferna liknar varandra --- men de är inte helt likadana. Någonstans mellan 2 och 4 finns ett tal som gör att $f(x)$ och $f'(x)$ är exakt likadana --- en funktion som är sin egen derivata. Det talet kallas $e$ och det är en konstant som är ungefär lika med 2,72.
 
 \begin{figure}[h!]
     \centering
     \begin{mdframed}[backgroundcolor=gray!10]
-        \begin{tikzpicture}
+        \centering
+        \begin{tikzpicture}[scale=.8]
             \begin{axis}[
                 axis lines = center,
                 xlabel = \(x\),
@@ -408,8 +451,8 @@ De två graferna liknar varandra --- men de är inte helt likadana. Det finns et
             \addlegendentry{$f(x) = e^x$}
             \end{axis}
         \end{tikzpicture}
-        \hskip 5pt
-        \begin{tikzpicture}
+        \hskip 5em
+        \begin{tikzpicture}[scale=.8]
             \begin{axis}[
                 axis lines = center,
                 xlabel = \(x\),
@@ -426,10 +469,151 @@ De två graferna liknar varandra --- men de är inte helt likadana. Det finns et
     \end{mdframed}
 \end{figure}
 
-Vi har hittat $ e \approx 2.77$, en siffra som ger oss den här väldigt användbara regeln:
+Vi har därmed hittat en funktion $f(x)$ som har den trevliga egenskapen att $f(x) = f'(x)$ --- vi kan formulera det som en väldigt användbar räkneregel:
 
 \begin{regel}
+    \label{reg:e^x}
     \[f(x) = e^x \imp f'(x) = e^x \]
 \end{regel}
+
+\subsection{Funktionen $\ln(x)$}
+
+I det här häftet kommer vi att stöta på funktionen $\ln(x)$, \emph{den naturliga logaritmen}. Den definieras så här:
+
+
+\begin{regel}
+    \label{reg:lnx}
+    \[ x = \ln(y) \imp e^x = y \]
+\end{regel}
+
+I fall när en funktion ett värde som t.ex. $\ln(3)$ som en del av sin lösning så räknar man generellt inte ut värdet av funktionen utan låter den stå som $\ln(3)$. Om man behöver räkna ut det så har alla datorer och de flesta miniräknare en $\ln$-funktion.
+
+\newpage
+
+\section{Potensregler}
+\label{app:pot}
+När man arbetar med derivata så dyker ofta potensfunktioner upp --- det är därför viktigt att ha bra koll på en del centrala potensregler.
+
+
+\begin{regel}
+    \[a^x \cdot a^y = a^{x+y} \]
+    \[\left(a^x\right)^y = a^{xy}\]
+    \[a^{-x} = \dfrac 1{a^x}\]
+    \[a^{\frac 1n} = \sqrt[n]a\]
+\end{regel}
+
+Här följer exempel på hur potensreglerna kan dyka upp i resten av häftet.
+
+
+\begin{exempel}
+    Funktionen $f(x) = \dfrac1{e^x}$ kan inte deriveras med vanliga deriveringsregler --- men med hjälp av potensreglerna kan vi skriva om det:
+
+    \[\dfrac1{e^x} = e^{-x} = e^{(-1)\cdot x}\]
+
+    $f(x) = e^{(-1)\cdot x}$ kan deriveras med regel \ref*{reg:e^kx} på sidan \pageref*{reg:e^kx}.
+\end{exempel}
+
+
+\begin{exempel}
+    Funktionen $f(x) = \dfrac {5^x}{5^{2x}}$ kan inte deriveras med vanliga deriveringsregler --- men med hjälp av potensreglerna kan vi skriva om det:
+
+    \[\dfrac {5^x}{5^{2x}} = 5^x \dfrac 1{5^{2x}} = 5^x 5^{-2x} = 5^{x+(-2x)} = 5^{-x} = 5^{(-1)x}\]
+
+    $f(x) = 5^{(-1)x}$ kan deriveras med regel \ref*{reg:a^kx} på sidan \pageref*{reg:a^kx}.
+
+\end{exempel}
+
+\begin{exempel}
+    Funktionen $f(x) = e^{x+2}$ kan inte deriveras med vanliga deriveringsregler --- men med hjälp av potensreglerna kan vi skriva om det:
+
+    \[e^{x+2} = e^xe^2 = e^2e^x\]
+
+    $f(x) = e^2e^x$ kan deriveras med regel \ref*{reg:e^x} på sidan \pageref*{reg:e^x} och \ref*{reg:kf(x)} på sidan \pageref*{reg:kf(x)}.
+
+\end{exempel}
+
+\newpage
+\section{Facit till övningsuppgifter}
+
+
+\begin{facit}
+    \begin{multicols}{3}
+        \begin{enumerate}
+            \item $f'(x) = 4x^3$
+            \item $g'(x) = 0$
+            \item $h'(x) = 27x^{26}$
+        \end{enumerate}
+    \end{multicols}
+\end{facit}
+
+\begin{facit}
+    \begin{multicols}{3}
+        \begin{enumerate}
+            \item $f'(x) = 12x^3$
+            \item $g'(x) = 0$
+            \item $h'(x) = 2$
+        \end{enumerate}
+    \end{multicols}
+\end{facit}
+
+\begin{facit}
+    \begin{multicols}{3}
+        \begin{enumerate}
+            \item $f'(x) = 12x^3$
+            \item $g'(x) = 8x + 3$
+            \item $h'(x) = 54x^{26} - 9x^2 + 1$
+        \end{enumerate}
+    \end{multicols}
+\end{facit}
+
+
+\begin{facit}
+    \begin{multicols}{3}
+        \begin{enumerate}
+            \item $f'(x) = e^x$
+            \item $g'(x) = 3e^x$
+            \item $h'(x) = 2e^x + 2x$
+        \end{enumerate}
+    \end{multicols}
+\end{facit}
+
+\begin{facit}
+    \begin{multicols}{3}
+        \begin{enumerate}
+            \item $f'(x) = \dfrac{3}{e^{-3x}}$
+            \item $g'(x) = 5e^x$
+            \item $h'(x) = 2e^x - \dfrac 1{e^x} + 2e^{-2x}$
+        \end{enumerate}
+    \end{multicols}
+\end{facit}
+
+\begin{facit}
+    \begin{multicols}{3}
+        \begin{enumerate}
+            \item $f'(x) = \ln (3) 3^x$
+            \item $g'(x) = \dfrac{3\ln (2)}{2^{-3x}}$
+            \item $h'(x) = 2 \ln (3) 3^x - \dfrac{2\ln (3)}{3^x} - \dfrac 2{3^{-x}}$
+        \end{enumerate}
+    \end{multicols}
+\end{facit}
+
+\newpage
+\section{Facit blandade uppgifter}
+
+\begin{blufacit}
+    \begin{itemize}
+        \item $f'(x) = 2x$
+        \item $g'(x) = -\dfrac{2}{x^3}$
+        \item $h'(x) = 2 \ln(3) + 6x$
+        \item $i'(x) = \ln(2) 2^x$
+        \item $j'(x) = -e^{-x}- e^x$
+        \item $k'(x) = -\dfrac{8}{3x^3}-e^x$
+        \item $l'(x) = 13x^{12} - \ln(13)13^x$
+        \item $m'(x) = -\dfrac{2\ln(3)}{5\cdot 3^x}$
+        \item $n'(x) = x^4$
+        \item $o'(x) = e^{x-3}$
+        \item $p'(x) = - \dfrac{2^6}{2^x}$
+    \end{itemize}
+\end{blufacit}
 
 \end{document}
