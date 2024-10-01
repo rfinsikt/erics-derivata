@@ -1,0 +1,91 @@
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{setspace}
+\usepackage[swedish]{babel}  % For Swedish language
+\usepackage[swedish]{datetime2}  % For Swedish date format
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{appendix}
+
+\usepackage{adjustbox}
+
+%eric gör "fina" satser
+\usepackage{mdframed}
+
+%eric gör "fina" bilder
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.18}
+
+%\newtheorem{regel}{Räkneregel}
+%\newtheorem{exempel}{Exempel}
+%\newtheorem{uppgifter}{Övningsuppgifter}
+
+\mdfdefinestyle{rstyle}{%
+linecolor=green,linewidth=2pt,%
+frametitlerule=true,%
+frametitlebackgroundcolor=green!10,
+innertopmargin=\topskip,
+topline=false,
+bottomline=false,
+rightline=false,
+nobreak=true
+}
+\mdtheorem[style=rstyle]{regel}{Räkneregel}
+
+\mdfdefinestyle{fstyle}{%
+linecolor=black,linewidth=2pt,%
+frametitlerule=true,%
+frametitlebackgroundcolor=black!10,
+innertopmargin=\topskip,
+topline=false,
+bottomline=false,
+rightline=false,
+nobreak=true
+}
+\mdtheorem[style=fstyle]{facit}{Övningsuppgifter}
+\mdtheorem[style=fstyle]{blufacit}{Blandade uppgifter}
+
+\mdfdefinestyle{bstyle}{%
+linecolor=purple,linewidth=2pt,%
+frametitlerule=true,%
+frametitlebackgroundcolor=purple!10,
+innertopmargin=\topskip,
+topline=false,
+bottomline=false,
+rightline=false,
+nobreak=true
+}
+\mdtheorem[style=bstyle]{blu}{Blandade uppgifter}
+
+\mdfdefinestyle{estyle}{%
+linecolor=blue,linewidth=2pt,%
+frametitlerule=true,%
+frametitlebackgroundcolor=blue!10,
+innertopmargin=\topskip,
+topline=false,
+bottomline=false,
+rightline=false,
+nobreak=true
+}
+\mdtheorem[style=estyle]{exempel}{Exempel}
+
+\mdfdefinestyle{ustyle}{%
+linecolor=yellow,linewidth=2pt,%
+frametitlerule=true,%
+frametitlebackgroundcolor=yellow!10,
+innertopmargin=\topskip,
+topline=false,
+bottomline=false,
+rightline=false,
+nobreak=true
+}
+\mdtheorem[style=ustyle]{uppgifter}{Övningsuppgifter}
+
+
+\renewcommand{\labelenumi}{\alph{enumi})} %nu blir enumerate med bokstäver
+
+\newcommand{\ans}[1][5]{= \textcolor{lightgray}{\rule[-.5 em]{#1 em}{.05 em}}}
+\newcommand{\imp}{\hspace{1em} \Longrightarrow \hspace{1em}}

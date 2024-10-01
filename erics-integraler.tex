@@ -1,0 +1,113 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{erics-preamble}
+
+\title{Erics integraler}
+\author{Eric Fridén}
+\date{\today}
+
+\begin{document}
+
+\doublespacing
+\maketitle
+
+\section{Integraler}
+Att "integrera" är att ta en funktion $f(x)$ och hitta \emph{arean under grafen}. 
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            axis lines = center,
+            xlabel = \(x\),
+            ymin = 0,
+            ymax = 8,
+            xmin = 0,
+            xmax = 4
+        ]
+        \addplot[name path=f, blue, ultra thick, samples=100] {x^3 - 4*x^2 + 4*x + 1};
+        \addlegendentry{$f(x)$}
+        \path [name path=xaxis] (\pgfkeysvalueof{/pgfplots/xmin},0) -- (\pgfkeysvalueof{/pgfplots/xmax},0);
+        \addplot[red, opacity=0.4] fill between [of=f and xaxis, soft clip={(1,-1) rectangle (3,10)},];
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Integralen av $f(x)$ från 1 till 3 markerat i rött.}
+    \label{fig:1}
+\end{figure}
+
+Vi skriver arean i figur \ref{fig:1} symboliskt så här: 
+
+\[ \int_1^3 f(x)dx \] 
+
+Vi uttalar det som "integralen från 1 till 3 av f-av-x dx". Integraltecknet $\int$ ser ut som ett utdraget S (och det är precis vad det är!) och vi skriver det minsta och största x-värdena som begränsar området i under- och överkant på s:et (lägre värde nere). Det lilla tillägget ''dx'' har en djup och intressant matematisk mening som du kan lära dig om nån annan gång --- för nu så nöjer vi oss med att ''dx''-biten berättar att det är tecknet ''x'' som är funktionens variabel.
+
+Målet med det här häftet är att vi ska kunna beräkna integraler, men innan vi är redo för det måste vi lära oss om \emph{primitiva funktioner}.
+
+\section{Primitiva funktioner}
+
+Den \emph{primitiva funktionen} till en funktion $f(x)$ är den funktion vars derivata är $f(x)$. Vi kan alltså tänka på uppgiften att hitta primitiva funktioner som att derivera \emph{baklänges}. Vi skriver oftast den primitiva funktionen med samma bokstav som funktionen, men med stor bokstav istället. Med andra ord:
+
+\[F'(x) = f(x) \imp F(x) \textrm{ är primitiv funktion till } f(x)\]
+
+
+\begin{exempel}
+    \label{ex:2x}
+    Hitta alla primitiva funktioner av $f(x) = 2x$
+
+    Svar: $F(x) = x^2 + C$
+\end{exempel}
+
+Bokstaven ''C'' i exempel \ref{ex:2x} är viktig! Den visar att det finns oändligt många \emph{olika} primitiva funktioner till $f(x)$. Både $F(x) = x^2 + 1$ och $F(x) = x^2 + 10^{40000}$ blir $2x$ när man deriverar dem eftersom konstanttermen försvinner.
+
+Ibland kommer det vara relevant att hitta ett speciellt värde på konstanten ''C'', men för nu så nöjer vi oss med att lägga till den när vi hittar den primitiva funktionen.
+
+Reglerna för att hitta primitiva funktioner kan man ofta hitta själv om man helt enkelt vänder på deriveringsreglerna. Vi kommer nu att gå igenom dem en och en.
+
+
+\begin{regel}
+    \[f(x) = x^n \imp F(x) = \dfrac {x^{n+1}}{n+1} + C\]
+\end{regel}
+
+En bra övning är att bekräfta att $F'(x) = f(x)$ varje gång vi introducerar en ny räkneregel.
+
+\begin{uppgifter}
+    \label{upp:x^n}
+    Hitta alla primitiva funktioner till följande funktioner: 
+    
+    (kom ihåg att $1=x^0$)
+    \begin{multicols}{3}
+        \begin{enumerate}
+            \item $f(x) = x^4 \\ F(x) \ans$
+            \item $g(x) = 1 \\ G(x) \ans$
+            \item $h(x) = x^{27} \\ H(x) \ans$
+        \end{enumerate}
+    \end{multicols}
+\end{uppgifter}
+
+Här följer tre regler som följer samma mönster --- de följer direkt efter deriveringsregler vi lärde oss i häftet \emph{Erics derivata}.
+
+\begin{regel}
+    \[f(x) = k\cdot x^n \imp F(x) = k\dfrac {x^{n+1}}{n+1} + C\]
+\end{regel}
+
+\begin{regel}
+    \[f(x) = g(x) + h(x) \imp F(x) = G(x) + H(x)\]
+\end{regel}
+
+\begin{regel}
+    \[f(x) = x^n \imp F(x) = \dfrac {x^{n+1}}{n+1} + C\]
+\end{regel}
+
+\begin{regel}
+    \[f(x) = e^x \imp F(x) = e^x + C\]
+\end{regel}
+
+\begin{regel}
+    \[f(x) = a^x \imp F(x) = \dfrac{a^x}{\ln(a)} + C\]
+\end{regel}
+
+\begin{regel}
+    \[f(x) = a^{kx} \imp F(x) = \dfrac{a^{kx}}{k\ln(a)} + C\]
+\end{regel}
+
+\end{document}
