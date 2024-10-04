@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1727438582 "c:/Users/ERIFRI/Documents/GitHub/erics-derivata/erics-derivata.tex" "erics-derivata.pdf" "erics-derivata" 1727438584 0
+["pdflatex"] 1728044644 "c:/Users/ERIFRI/Documents/GitHub/erics-derivata/erics-derivata.tex" "erics-derivata.pdf" "erics-derivata" 1728044646 0
   "C:/Users/ERIFRI/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1726830552 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/ERIFRI/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.pk" 1725973520 14064 91d24a958b7b20821219612b6d3ea8b1 ""
   "C:/Users/ERIFRI/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1692869256 24121092 0f16ab0f2e6d37f3bf155ddd0b193b73 ""
@@ -204,9 +204,9 @@
   "C:/Users/ERIFRI/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "C:/Users/ERIFRI/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-abspage.sty" 1695383086 2269 4fe6fb3396214c91f164d45faf9bec45 ""
   "C:/Users/ERIFRI/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1695383086 20785 f7d1133a287929598a897c93f8f4c44b ""
-  "c:/Users/ERIFRI/Documents/GitHub/erics-derivata/erics-derivata.tex" 1727438582 19947 f133cdbd7e474683d915128e8ad46757 ""
-  "erics-derivata.aux" 1727438584 3064 670f35588de75fe0fd8ab0ac8a0760d6 "pdflatex"
-  "erics-derivata.tex" 1727438582 19947 f133cdbd7e474683d915128e8ad46757 ""
+  "c:/Users/ERIFRI/Documents/GitHub/erics-derivata/erics-derivata.tex" 1728044641 19956 dcecfd07c1ae17fdbc1dfb2bcbddc95c ""
+  "erics-derivata.aux" 1728044646 3064 670f35588de75fe0fd8ab0ac8a0760d6 "pdflatex"
+  "erics-derivata.tex" 1728044641 19956 dcecfd07c1ae17fdbc1dfb2bcbddc95c ""
   (generated)
   "erics-derivata.aux"
   "erics-derivata.log"
