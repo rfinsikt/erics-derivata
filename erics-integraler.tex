@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper, 12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{erics-preamble}
 
@@ -65,6 +65,7 @@ Reglerna för att hitta primitiva funktioner kan man ofta hitta själv om man he
 
 
 \begin{regel}
+    \label{reg:x^n}
     \[f(x) = x^n \imp F(x) = \dfrac {x^{n+1}}{n+1} + C\]
 \end{regel}
 
@@ -84,26 +85,49 @@ En bra övning är att bekräfta att $F'(x) = f(x)$ varje gång vi introducerar 
     \end{multicols}
 \end{uppgifter}
 
+Samma smidiga regler om addition och multiplikation som vi använde med derivata gäller också när vi tar fram primitiva funktioner:
+\begin{regel}
+    \[f(x) = g(x) + h(x) \imp F(x) = G(x) + H(x)\]
+    \[f(x) = k\cdot g(x) \imp F(x) = k\cdot G(x)\]
+\end{regel}
+
+
+\begin{exempel}
+    Hitta alla primitiva funktioner till $f(x) = 3x^2 - x$.
+
+    Svar: \[F(x) = 3\dfrac {x^3}3 - \dfrac {x^2}2  + C= x^3 - \dfrac {x^2}2 + C\]
+\end{exempel}
+
+Precis som med derivata så behöver $n$ i räkneregel \ref{reg:x^n} inte vara ett positivt heltal. Regeln fungerar på precis samma sätt med exponenter som $-2$, $\frac 13$ och $2,35$.
+
+
+\begin{exempel}
+    Hitta alla primitiva funktioner till $f(x) = x^{-2} + x^\frac{1}{3} + x^{2,35}$
+    \\Lösning:
+    Vi börjar med att använda räkneregel \ref{reg:x^n} för alla tre termerna:
+    \[F(x) = \dfrac {x^{-3}}{-2} + \dfrac {x^\frac{4}{3}}{\frac{4}{3}} + \dfrac {x^{3,35}}{3,35} + C \]
+    Sedan städar vi upp den primitiva funktionen med hjälp av vanliga bråkregler, och vi får vår slutgiltiga primitiva funktion:
+    \[F(x) = - \dfrac {x^{-3}}{2} + \dfrac {3x^\frac{4}{3}}{4} + \dfrac {x^{3,35}}{3,35} + C\]
+\end{exempel}
+
+Kom ihåg bråk- och potensregler när du löser uppgifterna i övningsuppgifter \ref{upp:x^1/3}.
+
+\begin{uppgifter}
+    \label{upp:x^1/3}
+    Hitta alla primitiva funktioner till följande funktioner: 
+    \begin{multicols}{3}
+        \begin{enumerate}
+            \item $f(x) = \sqrt{x} \\ F(x) \ans$
+            \item $g(x) = \dfrac 1{x^2} - \dfrac 1{x^{3}} \\ G(x) \ans$
+            \item $h(x) = 4x^{0,5} \\ H(x) \ans$
+        \end{enumerate}
+    \end{multicols}
+\end{uppgifter}
+
 Här följer tre regler som följer samma mönster --- de följer direkt efter deriveringsregler vi lärde oss i häftet \emph{Erics derivata}.
 
 \begin{regel}
-    \[f(x) = k\cdot x^n \imp F(x) = k\dfrac {x^{n+1}}{n+1} + C\]
-\end{regel}
-
-\begin{regel}
-    \[f(x) = g(x) + h(x) \imp F(x) = G(x) + H(x)\]
-\end{regel}
-
-\begin{regel}
-    \[f(x) = x^n \imp F(x) = \dfrac {x^{n+1}}{n+1} + C\]
-\end{regel}
-
-\begin{regel}
-    \[f(x) = e^x \imp F(x) = e^x + C\]
-\end{regel}
-
-\begin{regel}
-    \[f(x) = a^x \imp F(x) = \dfrac{a^x}{\ln(a)} + C\]
+    \[f(x) = e^kx \imp F(x) = \dfrac{e^x}k + C\]
 \end{regel}
 
 \begin{regel}

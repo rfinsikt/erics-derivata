@@ -129,6 +129,32 @@ Kolla igen på exempel \ref*{ex:3x2} här ovanför och se att du är med på hur
     \end{multicols}
 \end{uppgifter}
 
+\subsection{Icke-naturliga tal i exponenten}
+En sak jag inte nämnde när vi introducerade räkneregel \ref{reg:x^n} på sidan \pageref{reg:x^n} var att $n$ INTE måste vara ett positivt heltal --- exakt samma regel gäller om exponenten är -2 eller $\frac 13$ eller $2,35$.
+
+\begin{exempel}
+    \label{ex:x^1/3}
+    Vad är derivatan av $f(x) = x^{-2} + x^{\frac 13} + x^{2,35}$ ?
+
+    Svar:
+    \[ f'(x) = (-2)x^{-2-1} + \frac 13 x^{\frac 13 - 1} + 2,35 x^{2,35-1} = -2x^{-3} + \dfrac{x^{-\frac 23}}{3} + 2,35x^{1,35} \]
+\end{exempel}
+
+I de här övningsuppgifterna så får du träna på liknande saker som dyker upp i exempel \ref{ex:x^1/3}. Om du fastnar så kom ihåg att titta på potensreglerna i appendix \ref{app:pot} på sidan \pageref{app:pot}.
+
+
+\begin{uppgifter}
+    \label{upp:x^1/3}
+    Derivera följande funktioner:
+    \begin{multicols}{3}
+        \begin{enumerate}
+            \item $f(x) = \sqrt{x} \\ f'(x) \ans$
+            \item $g(x) = \dfrac 1{x} + \dfrac 1{x^2} \\ g'(x) \ans$
+            \item $h(x) = 4x^{0,5} \\ h'(x) \ans$
+        \end{enumerate}
+    \end{multicols}
+\end{uppgifter}
+
 \subsection{Derivatan av $a^x$}
 Nu ska vi utvidga till derivator av funktioner där $x$ finns i exponenten, en grupp av funktioner som kallas \emph{exponentialfunktioner.}
 
