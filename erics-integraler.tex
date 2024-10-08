@@ -39,13 +39,13 @@ Vi skriver arean i figur \ref{fig:1} symboliskt så här:
 
 \[ \int_1^3 f(x)dx \] 
 
-Vi uttalar det som "integralen från 1 till 3 av f-av-x dx". Integraltecknet $\int$ ser ut som ett utdraget S (och det är precis vad det är!) och vi skriver det minsta och största x-värdena som begränsar området i under- och överkant på s:et (lägre värde nere). Det lilla tillägget ''dx'' har en djup och intressant matematisk mening som du kan lära dig om nån annan gång --- för nu så nöjer vi oss med att ''dx''-biten berättar att det är tecknet ''x'' som är funktionens variabel.
+Vi uttalar det som "integralen från 1 till 3 av f av x dx". Integraltecknet $\int$ ser ut som ett utdraget S (och det är precis vad det är!) och vi skriver gränser längst upp och längst ner på s:et. Talet nedanför berättar områdets vänsterkant och talet ovanför berättar områdets högerkant. Det lilla tillägget ''dx'' har en djup och intressant matematisk mening som du kan lära dig om nån annan gång --- för nu så nöjer vi oss med att ``dx''-biten berättar att det är tecknet ``x'' som är funktionens variabel.
 
 Målet med det här häftet är att vi ska kunna beräkna integraler, men innan vi är redo för det måste vi lära oss om \emph{primitiva funktioner}.
 
 \section{Primitiva funktioner}
 
-Den \emph{primitiva funktionen} till en funktion $f(x)$ är den funktion vars derivata är $f(x)$. Vi kan alltså tänka på uppgiften att hitta primitiva funktioner som att derivera \emph{baklänges}. Vi skriver oftast den primitiva funktionen med samma bokstav som funktionen, men med stor bokstav istället. Med andra ord:
+Den \emph{primitiva funktionen} till en funktion $f(x)$ är den funktion vars derivata är $f(x)$. Vi kan alltså tänka på uppgiften att hitta primitiva funktioner som att derivera \emph{baklänges}. Vi skriver oftast den primitiva funktionen med samma bokstav som funktionen, men med stor bokstav istället för liten. Med andra ord:
 
 \[F'(x) = f(x) \imp F(x) \textrm{ är primitiv funktion till } f(x)\]
 
@@ -59,17 +59,17 @@ Den \emph{primitiva funktionen} till en funktion $f(x)$ är den funktion vars de
 
 Bokstaven ''C'' i exempel \ref{ex:2x} är viktig! Den visar att det finns oändligt många \emph{olika} primitiva funktioner till $f(x)$. Både $F(x) = x^2 + 1$ och $F(x) = x^2 + 10^{40000}$ blir $2x$ när man deriverar dem eftersom konstanttermen försvinner.
 
-Ibland kommer det vara relevant att hitta ett speciellt värde på konstanten ''C'', men för nu så nöjer vi oss med att lägga till den när vi hittar den primitiva funktionen.
+Ibland kommer det vara relevant för oss att hitta ett specifikt värde på konstanten ``C'', men för nu så nöjer vi oss med att lägga till den när vi hittar den primitiva funktionen.
 
-Reglerna för att hitta primitiva funktioner kan man ofta hitta själv om man helt enkelt vänder på deriveringsreglerna. Vi kommer nu att gå igenom dem en och en.
+Reglerna för att hitta primitiva funktioner kan man ofta hitta själv om man helt enkelt vänder på deriveringsreglerna. Vi kommer att gå igenom dem en och en, men vill man ha en utmaning kan man försöka lista ut dem själv. Oavsett så är det en bra övning att bekräfta att $F'(x) = f(x)$ varje gång vi introducerar en ny räkneregel.
 
 
 \begin{regel}
     \label{reg:x^n}
-    \[f(x) = x^n \imp F(x) = \dfrac {x^{n+1}}{n+1} + C\]
+    \[f(x) = x^n \imp F(x) = \dfrac {x^{n+1}}{n+1} + C \hspace{3em} (x\neq -1)\]
 \end{regel}
 
-En bra övning är att bekräfta att $F'(x) = f(x)$ varje gång vi introducerar en ny räkneregel.
+Om du undrar varför $x$ inte får vara -1 så kommer vi att ta upp det fallet senare, i räkneregel \ref{reg:x^-1} på sidan \pageref{reg:x^-1}. För tillfället så låtsas vi som ingenting och har i bakhuvudet att det finns ett undantag från räkneregel \ref{reg:x^n}.
 
 \begin{uppgifter}
     \label{upp:x^n}
@@ -95,7 +95,10 @@ Samma smidiga regler om addition och multiplikation som vi använde med derivata
 \begin{exempel}
     Hitta alla primitiva funktioner till $f(x) = 3x^2 - x$.
 
+    \dinkus
     Svar: \[F(x) = 3\dfrac {x^3}3 - \dfrac {x^2}2  + C= x^3 - \dfrac {x^2}2 + C\]
+
+    Vi \emph{hade} kunnat skriva svaret som $3\frac {x^3}3 + C_1 - \frac {x^2}2  + C_2$ med två olika konstanter, en från varje del. Vi gör inte det, och vi kommer att fortsätta att inte göra det, eftersom $C_1$ och $C_2$ representerar vilka konstanta tal som helst --- och vi kan därför lika gärna baka ihop dem till en konstant.
 \end{exempel}
 
 Precis som med derivata så behöver $n$ i räkneregel \ref{reg:x^n} inte vara ett positivt heltal. Regeln fungerar på precis samma sätt med exponenter som $-2$, $\frac 13$ och $2,35$.
@@ -103,9 +106,10 @@ Precis som med derivata så behöver $n$ i räkneregel \ref{reg:x^n} inte vara e
 
 \begin{exempel}
     Hitta alla primitiva funktioner till $f(x) = x^{-2} + x^\frac{1}{3} + x^{2,35}$
-    \\Lösning:
+    \dinkus
     Vi börjar med att använda räkneregel \ref{reg:x^n} för alla tre termerna:
     \[F(x) = \dfrac {x^{-3}}{-2} + \dfrac {x^\frac{4}{3}}{\frac{4}{3}} + \dfrac {x^{3,35}}{3,35} + C \]
+    
     Sedan städar vi upp den primitiva funktionen med hjälp av vanliga bråkregler, och vi får vår slutgiltiga primitiva funktion:
     \[F(x) = - \dfrac {x^{-3}}{2} + \dfrac {3x^\frac{4}{3}}{4} + \dfrac {x^{3,35}}{3,35} + C\]
 \end{exempel}
@@ -124,14 +128,93 @@ Kom ihåg bråk- och potensregler när du löser uppgifterna i övningsuppgifter
     \end{multicols}
 \end{uppgifter}
 
-Här följer tre regler som följer samma mönster --- de följer direkt efter deriveringsregler vi lärde oss i häftet \emph{Erics derivata}.
+Följande tre regler om primitiva funktioner till exponentialfunktioner kommer naturligt av deriveringsreglerna om samma funktioner.
+
 
 \begin{regel}
-    \[f(x) = e^kx \imp F(x) = \dfrac{e^x}k + C\]
+    \label{reg:e^x}
+    \[f(x) = e^x \imp F(x) = e^x + C\]
+\end{regel}
+
+\begin{regel}
+    \[f(x) = e^{kx} \imp F(x) = \dfrac{e^{kx}}k + C\]
 \end{regel}
 
 \begin{regel}
     \[f(x) = a^{kx} \imp F(x) = \dfrac{a^{kx}}{k\ln(a)} + C\]
 \end{regel}
+
+
+\begin{exempel}
+    \label{ex:a^kx}
+    Hitta alla primitiva funktioner till $f(x) = 3e^x - 4^{3x}$.
+    \dinkus
+    Svar: \[F(x) = 3e^x- \dfrac{4^{3x}}{3\ln (4)} + C\]
+\end{exempel}
+
+\begin{uppgifter}
+    \label{upp:a^kx}
+    Hitta alla primitiva funktioner till följande funktioner: 
+    \begin{multicols}{3}
+        \begin{enumerate}
+            \item $f(x) = \dfrac 1{e^x} \\ F(x) \ans$
+            \item $g(x) = 10^{2x}  \\ G(x) \ans$
+            \item $h(x) = \dfrac 3{3^{3x}} \\ H(x) \ans$
+        \end{enumerate}
+    \end{multicols}
+\end{uppgifter}
+
+\section{Ett underligt undantag}
+Nu är det dags att ta upp det specifika undantaget som fanns i räkneregel \ref{reg:x^n} på sidan \pageref{reg:x^n} --- hur ser den primitiva funktionen till $f(x) = \dfrac{1}{x}$ ut? Det finns en regel\dots
+
+\begin{regel}
+    \label{reg:x^-1}
+    \[f(x) =  \dfrac 1x \imp F(x) = \ln\vert x \vert + C\]
+\end{regel}
+
+Hur kommer det sig? Varför då? Var \%\#\& kom den naturliga logaritmen ifrån? Absolutbelopp??? Alla fyra är utmärkta frågor med intressanta och sublima svar som vi inte har någon plats för i det här lilla häftet.
+
+\section{Att beräkna integraler}
+
+Nu är det dags att gå tillbaka till vad vi skulle göra från början --- att beräkna arean under en funktions graf (som i figur \ref{fig:1} på sidan \pageref{fig:1}). Vi kommer nu att introducera en av matematikens viktigaste räkneregler --- \emph{analysens fundamentalsats} --- som beskriver precis hur vi kan använda primitiva funktioner för att beräkna integraler. Vill du veta mer om hur man kommer fram till den så kan du titta upp teorin om \emph{Riemann-summor}.
+
+Det finns också en bit helt ny notation här som vi ska förklara strax härunder. Men nu: Analysens fundamentalsats!
+\begin{regel}[Analysens fundamentalsats]
+    \label{reg:fund}
+    \[\int_{a}^{b}f(x)dx = \left[F(x)\right]_a^b\]
+\end{regel}
+
+Högerledet i räkneregel \ref{reg:fund} här ovanför läser man högt som ``F av x \emph{värderat} från a till b''. Det är ett kortfattat och smidigt sätt att skriva skillnaden i funktionen $F$s värde mellan $x=a$ och $x=b$. Mer specifikt så beräknas det så här:
+
+
+\begin{regel}
+    \label{reg:val}
+    \[\left[F(x)\right]_a^b = F(b) - F(a)\]
+\end{regel}
+
+\begin{exempel}
+    Beräkna: \[\int_1^3x^2dx\]
+    \dinkus
+    Vi börjar med att hitta alla primitiva funktioner till $f(x)$.
+    \[f(x) = x^2 \imp F(x) = \dfrac {x^3}3 + C\]
+
+    Nu kan vi beräkna integralen med hjälp av räkneregel \ref{reg:fund}.
+    \[\int_1^3x^2dx = \left[x^3 + C\right]_1^3 = \left(3^3 + C \right) - \left(1^3 + C\right) = 27 - 1 = 26\]
+
+    Notera att alla konstanterna $C$ försvann i uträkningen --- det gör de alltid, så vi kommer i framtiden att med gott samvete ignorera konstanten när vi värderar integraler, och skriva uträkningen som:
+    \[\int_1^3x^2dx = \left[x^3\right]_1^3 = \left(3^3\right) - \left(1^3\right) = 27 - 1 = 26\]
+
+    Svar: $\int_1^3x^2dx = 26$
+\end{exempel}
+
+\begin{uppgifter}
+    \label{upp:int}
+    Beräkna följande integraler:
+    \begin{enumerate}
+        \item \[\int_0^1e^xdx \ans[27] \]
+        \item \[\int_{-2}^2x^2dx \ans[27]\]
+        \item \[\int_2^3\dfrac 3{2^x}dx \ans[27]\]
+    \end{enumerate}
+\end{uppgifter}
 
 \end{document}

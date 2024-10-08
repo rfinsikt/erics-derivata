@@ -23,6 +23,24 @@
 %\newtheorem{exempel}{Exempel}
 %\newtheorem{uppgifter}{Övningsuppgifter}
 
+%Eric vill ha en dinkus
+\usepackage{xhfill}
+
+% https://tex.stackexchange.com/a/233857
+\UndeclareTextCommand{\textasteriskcentered}{TS1}
+\DeclareTextSymbolDefault{\textasteriskcentered}{OT1}
+\DeclareTextCommand{\textasteriskcentered}{OT1}{\raisebox{-.7ex}[1ex][0pt]{*}}
+
+\newcommand{\dinkus}[1][1]{%
+  \par\vskip0.5\baselineskip%
+  \noindent%
+  \hbox to \dimexpr 0.5\linewidth - #1\linewidth / 2\relax{}%
+  \xrfill[0.5ex]{0.4pt}[lightgray]%
+  \;\textcolor{lightgray}{\textasteriskcentered\,\textasteriskcentered\,\textasteriskcentered}\;%
+  \xrfill[0.5ex]{0.4pt}[lightgray]%
+  \hbox to \dimexpr 0.5\linewidth - #1\linewidth / 2\relax{}%
+  \vskip0.5\baselineskip\par}
+
 \mdfdefinestyle{rstyle}{%
 linecolor=green,linewidth=2pt,%
 frametitlerule=true,%

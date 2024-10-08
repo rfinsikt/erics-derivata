@@ -314,6 +314,12 @@ INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfcontrib/pgflibr
 INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfcontrib/pgflibraryfillbetween.code.tex
 INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.decorations.softclip.code.tex
 INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.decorations.softclip.code.tex
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/xhfill/xhfill.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/xhfill/xhfill.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/tools/calc.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/tools/calc.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/tools/xspace.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/tools/xspace.sty
 INPUT ./erics-integraler.aux
 INPUT ./erics-integraler.aux
 INPUT erics-integraler.aux
