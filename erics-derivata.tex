@@ -1,100 +1,11 @@
 \documentclass[a4paper, 12pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage{amsmath}
-\usepackage{multicol}
-\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
-\usepackage{setspace}
-\usepackage[swedish]{babel}  % For Swedish language
-\usepackage[swedish]{datetime2}  % For Swedish date format
-\usepackage{graphicx}
-\usepackage{xcolor}
-\usepackage{appendix}
-
-\usepackage{adjustbox}
-
-%eric gör "fina" satser
-\usepackage{mdframed}
-
-%eric gör "fina" bilder
-\usepackage{tikz}
-\usepackage{pgfplots}
-
-%\newtheorem{regel}{Räkneregel}
-%\newtheorem{exempel}{Exempel}
-%\newtheorem{uppgifter}{Övningsuppgifter}
-
-\mdfdefinestyle{rstyle}{%
-linecolor=green,linewidth=2pt,%
-frametitlerule=true,%
-frametitlebackgroundcolor=green!10,
-innertopmargin=\topskip,
-topline=false,
-bottomline=false,
-rightline=false,
-nobreak=true
-}
-\mdtheorem[style=rstyle]{regel}{Räkneregel}
-
-\mdfdefinestyle{fstyle}{%
-linecolor=black,linewidth=2pt,%
-frametitlerule=true,%
-frametitlebackgroundcolor=black!10,
-innertopmargin=\topskip,
-topline=false,
-bottomline=false,
-rightline=false,
-nobreak=true
-}
-\mdtheorem[style=fstyle]{facit}{Övningsuppgifter}
-\mdtheorem[style=fstyle]{blufacit}{Blandade uppgifter}
-
-\mdfdefinestyle{bstyle}{%
-linecolor=purple,linewidth=2pt,%
-frametitlerule=true,%
-frametitlebackgroundcolor=purple!10,
-innertopmargin=\topskip,
-topline=false,
-bottomline=false,
-rightline=false,
-nobreak=true
-}
-\mdtheorem[style=bstyle]{blu}{Blandade uppgifter}
-
-\mdfdefinestyle{estyle}{%
-linecolor=blue,linewidth=2pt,%
-frametitlerule=true,%
-frametitlebackgroundcolor=blue!10,
-innertopmargin=\topskip,
-topline=false,
-bottomline=false,
-rightline=false,
-nobreak=true
-}
-\mdtheorem[style=estyle]{exempel}{Exempel}
-
-\mdfdefinestyle{ustyle}{%
-linecolor=yellow,linewidth=2pt,%
-frametitlerule=true,%
-frametitlebackgroundcolor=yellow!10,
-innertopmargin=\topskip,
-topline=false,
-bottomline=false,
-rightline=false,
-nobreak=true
-}
-\mdtheorem[style=ustyle]{uppgifter}{Övningsuppgifter}
-
-
-\renewcommand{\labelenumi}{\alph{enumi})} %nu blir enumerate med bokstäver
+\usepackage{erics-preamble}
 
 \title{Erics derivata}
 \author{Eric Fridén}
 \date{\today}
 
 \begin{document}
-
-\newcommand{\ans}[1][5]{= \textcolor{lightgray}{\rule[-.5 em]{#1 em}{.05 em}}}
-\newcommand{\imp}{\hspace{1em} \Longrightarrow \hspace{1em}}
 
 \doublespacing
 \maketitle
@@ -214,6 +125,32 @@ Kolla igen på exempel \ref*{ex:3x2} här ovanför och se att du är med på hur
             \item $f(x) = 3x^4 + 1 \\ f'(x) \ans$
             \item $g(x) = 4x^2 + 3x \\ g'(x) \ans$
             \item $h(x) = 2x^{27} - 3x^3 + x \\ h'(x) \ans$
+        \end{enumerate}
+    \end{multicols}
+\end{uppgifter}
+
+\subsection{Icke-naturliga tal i exponenten}
+En sak jag inte nämnde när vi introducerade räkneregel \ref{reg:x^n} på sidan \pageref{reg:x^n} var att $n$ INTE måste vara ett positivt heltal --- exakt samma regel gäller om exponenten är -2 eller $\frac 13$ eller $2,35$.
+
+\begin{exempel}
+    \label{ex:x^1/3}
+    Vad är derivatan av $f(x) = x^{-2} + x^{\frac 13} + x^{2,35}$ ?
+
+    Svar:
+    \[ f'(x) = (-2)x^{-2-1} + \frac 13 x^{\frac 13 - 1} + 2,35 x^{2,35-1} = -2x^{-3} + \dfrac{x^{-\frac 23}}{3} + 2,35x^{1,35} \]
+\end{exempel}
+
+I de här övningsuppgifterna så får du träna på liknande saker som dyker upp i exempel \ref{ex:x^1/3}. Om du fastnar så kom ihåg att titta på potensreglerna i appendix \ref{app:pot} på sidan \pageref{app:pot}.
+
+
+\begin{uppgifter}
+    \label{upp:x^1/3}
+    Derivera följande funktioner:
+    \begin{multicols}{3}
+        \begin{enumerate}
+            \item $f(x) = \sqrt{x} \\ f'(x) \ans$
+            \item $g(x) = \dfrac 1{x} + \dfrac 1{x^2} \\ g'(x) \ans$
+            \item $h(x) = 4x^{0,5} \\ h'(x) \ans$
         \end{enumerate}
     \end{multicols}
 \end{uppgifter}
@@ -512,7 +449,6 @@ Här följer exempel på hur potensreglerna kan dyka upp i resten av häftet.
 
     $f(x) = e^{(-1)\cdot x}$ kan deriveras med regel \ref*{reg:e^kx} på sidan \pageref*{reg:e^kx}.
 \end{exempel}
-
 
 \begin{exempel}
     Funktionen $f(x) = \dfrac {5^x}{5^{2x}}$ kan inte deriveras med vanliga deriveringsregler --- men med hjälp av potensreglerna kan vi skriva om det:
