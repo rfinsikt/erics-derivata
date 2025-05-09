@@ -10,13 +10,15 @@
 \doublespacing
 \maketitle
 
+\intro
+
 \section{Deriveringsregler}
 
 \subsection{Vad är derivata?}
 
 Att ``derivera'' är att ta en funktion $f(x)$ och göra om den till en ny funktion som visar \emph{förändringshastigheten} av den första!
 
-Den nya funktionen kallas \emph{derivatan} av $f(x)$. Den skrivs $f'(x)$ som uttalas `` f-prim av x''.
+Den nya funktionen kallas \emph{derivatan} av $f(x)$. Den skrivs $f'(x)$ som uttalas ``f-prim av x''.
 
 \begin{figure}[h]
     \centering
@@ -46,14 +48,16 @@ I figur \ref{fig:1} så är $f(x) = x^2 - 3$ och $f'(x) = 2x$. Målet med det h�
 \end{regel}
 
 \begin{exempel}
-    Vad är derivatan av $x^3$?\\
-    Svar: $f'(x) = 3\cdot x^{3-1} = 3x^2$
+    Derivera funktionen $f(x) = x^3$
+    \dinkus
+    Svar: \[f'(x) = 3\cdot x^{3-1} = 3x^2\]
 \end{exempel}
 
 
 \begin{exempel}
-    Vad är derivatan av $f(x) = 1$\\
-    Svar: $f(x) = x^0 \imp f'(x) = 0 \cdot \left [ \text{spelar ingen roll vad som kommer här}\right] = 0$
+    Derivera funktionen $f(x) = 1$
+    \dinkus
+    Svar: \[f(x) = x^0 \imp f'(x) = 0 \cdot \left[ \text{spelar ingen roll vad som kommer här}\right] = 0\]
 \end{exempel}
 
 \begin{uppgifter}
@@ -82,11 +86,11 @@ Som du kanske märker i räkneregel \ref*{reg:kxn} så ''hände'' det inget med 
 \end{regel}
 
 \begin{exempel}
-    Vad är derivatan av $3x^2$? \\ Svar: $f'(x) = 3\cdot 2x^{2-1} = 6x$
+    Derivera funktionen $f(x) = 3x^2$ \dinkus Svar: \[f'(x) = 3\cdot 2x^{2-1} = 6x\]
 \end{exempel}
 
 \begin{exempel}
-    Vad är derivatan av $3$? \\ Svar: $f(x) = 3 \cdot x^0 \imp f'(x) = 3 \cdot 0 = 0$
+    Derivera funktionen $f(x) = 3$ \dinkus Svar: \[f(x) = 3 \cdot x^0 \imp f'(x) = 3 \cdot 0 = 0\]
 \end{exempel}
 
 \begin{uppgifter}
@@ -105,7 +109,7 @@ Vi behöver en till regel för att kunna derivera alla polynom -- vi behöver ve
 
 \begin{exempel}
     \label{ex:3x2}
-    Vad är derivatan av $3x^2 + x^3$? \\ Svar: $f'(x) = 6x + 3x^2$
+    Derivera funktionen $f(x) = 3x^2 + x^3$ \dinkus Svar: \[f'(x) = 6x + 3x^2\]
 \end{exempel}
 
 Du kanske ser mönstret utifrån exemplet, här är iallafall den generella regeln:
@@ -134,8 +138,8 @@ En sak jag inte nämnde när vi introducerade räkneregel \ref{reg:x^n} på sida
 
 \begin{exempel}
     \label{ex:x^1/3}
-    Vad är derivatan av $f(x) = x^{-2} + x^{\frac 13} + x^{2,35}$ ?
-
+    Derivera funktionen $f(x) = x^{-2} + x^{\frac 13} + x^{2,35}$
+    \dinkus
     Svar:
     \[ f'(x) = (-2)x^{-2-1} + \frac 13 x^{\frac 13 - 1} + 2,35 x^{2,35-1} = -2x^{-3} + \dfrac{x^{-\frac 23}}{3} + 2,35x^{1,35} \]
 \end{exempel}
@@ -184,17 +188,19 @@ Vi har följande regel som gäller för ett speciellt värde, när siffran i bas
 
 
 \begin{exempel}
-    Vad är derivatan av $f(x) = e^{3x}$? \\
-    Svar: $f'(x) = 3e^{3x}$
+    Derivera funktionen $f(x) = e^{3x}$
+    \dinkus
+    Svar: \[f'(x) = 3e^{3x}\]
 \end{exempel}
 
 
 \begin{exempel}
-    Vad är derivatan av $f(x) = \dfrac 1{e^x}$? \\
+    Derivera funktionen $f(x) = \dfrac 1{e^x}$
+     \dinkus
     Lösning: Vi börjar med att skriva om $f(x)$ med hjälp av potensregler (se Appendix \ref*{app:pot} på sidan \pageref*{app:pot}). 
     \[ \frac 1{e^x} = e^{-x} = e^{(-1)x} \]
-    Nu kan vi använda räkneregel \ref*{reg:e^kx}. \\
-    Svar: $f'(x) = (-1)\cdot e^{(-1)x} = -e^{-x} = -\dfrac 1{e^x}$
+    Nu kan vi använda räkneregel \ref*{reg:e^kx}.
+    Svar: \[f'(x) = (-1)\cdot e^{(-1)x} = -e^{-x} = -\dfrac 1{e^x}\]
 \end{exempel}
 
 
@@ -222,8 +228,9 @@ Om du tittar på figur \ref*{fig:2^x} på sidan \pageref*{fig:2^x} och figur \re
 
 \begin{exempel}
     \label{ex:a^x}
-    Vad är derivatan till $3^x$?
-    Svar: $f'(x) = \ln (3) 3^x$
+    Derivera funktionen $f(x) = 3^x$
+    \dinkus
+    Svar: \[f'(x) = \ln (3) 3^x\]
 \end{exempel}
 
 Vi räknar väldigt sällan ut vad ett tal som $\ln(3)$ blir i decimalform --- om vi inte absolut behöver så är det enklast att låta det stå som det är.
@@ -237,14 +244,14 @@ Vi har en till regel för detta som liknar regel \ref*{reg:e^kx} på sidan \page
 
 
 \begin{exempel}
-    Vad är derivatan av $f(x) = \dfrac 2{4^{2x}}$?
-    
+    Derivera funktionen $f(x) = \dfrac 2{4^{2x}}$
+    \dinkus
     Lösning: Vi börjar med att skriva om $f(x)$ med hjälp av potensregler (se Appendix \ref*{app:pot} på sidan \pageref*{app:pot}).
     \[\dfrac{2}{4^{2x}} = 2\dfrac{1}{4^{2x}} = 2\cdot 4^{-2x} = 2\cdot 4^{(-2)x}\]
 
     Nu kan vi använda räkneregel \ref*{reg:a^kx}.
 
-    Svar: $f'(x) = 2\cdot (-2) \cdot \ln(4) 4^{-2x} = - \dfrac {4\ln(4)} {4^{2x}}$
+    Svar: \[f'(x) = 2\cdot (-2) \cdot \ln(4) 4^{-2x} = - \dfrac {4\ln(4)} {4^{2x}}\]
 \end{exempel}
 
 \begin{uppgifter}
@@ -465,12 +472,18 @@ Här följer exempel på hur potensreglerna kan dyka upp i resten av häftet.
     \[e^{x+2} = e^xe^2 = e^2e^x\]
 
     $f(x) = e^2e^x$ kan deriveras med regel \ref*{reg:e^x} på sidan \pageref*{reg:e^x} och \ref*{reg:kf(x)} på sidan \pageref*{reg:kf(x)}.
+\end{exempel}
 
+\begin{exempel}
+    Funktionen $f(x) = \sqrt{x}$ kan inte deriveras med vanliga deriveringsregler --- men med hjälp av potensreglerna kan vi skriva om det:
+
+    \[\sqrt{x} = x^{\frac 12}\]
+
+    $f(x) = x^{\frac 12}$ kan deriveras med regel \ref*{reg:e^x} på sidan \pageref*{reg:e^x} och \ref*{reg:kf(x)} på sidan \pageref*{reg:kf(x)}.
 \end{exempel}
 
 \newpage
 \section{Facit till övningsuppgifter}
-
 
 \begin{facit}
     \begin{multicols}{3}
@@ -502,6 +515,15 @@ Här följer exempel på hur potensreglerna kan dyka upp i resten av häftet.
     \end{multicols}
 \end{facit}
 
+\begin{facit}
+    \begin{multicols}{3}
+        \begin{enumerate}
+            \item $f'(x) = \dfrac 1{2\sqrt{x}}$
+            \item $g'(x) = -\dfrac 1{x^2} - \dfrac 2 {x^3}$
+            \item $h'(x) = 2x^{-0,5}$
+        \end{enumerate}
+    \end{multicols}
+\end{facit}
 
 \begin{facit}
     \begin{multicols}{3}
@@ -517,7 +539,7 @@ Här följer exempel på hur potensreglerna kan dyka upp i resten av häftet.
     \begin{multicols}{3}
         \begin{enumerate}
             \item $f'(x) = \dfrac{3}{e^{-3x}}$
-            \item $g'(x) = 5e^x$
+            \item $g'(x) = 5e^{5x}$
             \item $h'(x) = 2e^x - \dfrac 1{e^x} + 2e^{-2x}$
         \end{enumerate}
     \end{multicols}
